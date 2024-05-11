@@ -1,4 +1,4 @@
-package com.internal.hr.hr;
+package com.internal.bms.hr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,3 +11,5 @@ class HrApplicationTests {
 	}
 
 }
+
+

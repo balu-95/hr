@@ -1,14 +1,15 @@
 package com.internal.bms.hr.hello;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.openapitools.api.HelloApi;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloController {
+public class HelloController implements HelloApi {
 
-	@GetMapping("/hello")
-	private String hello() {
-		
-		return "Welcome to HR portal";
+	@Override
+	public ResponseEntity<String> helloGet() {
+		return ResponseEntity.ok("Welcome to the HR Portal");
+
 	}
 }
