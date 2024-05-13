@@ -1,0 +1,25 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17' # Change as per your project requirements
+        
+    - name: Build with Maven
+      run: mvn -B clean package --file pom.xml
+      
+    - name: Run tests
+      run: mvn test
