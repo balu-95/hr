@@ -13,7 +13,7 @@ class HelloControllerTest {
         HelloController helloController = new HelloController();
         ResponseEntity<String> response = helloController.helloGet();
         
-        // Check if the response status is OK
+        //Check if the response status is OK
         assertEquals(HttpStatus.OK, response.getStatusCode());
         
         // Check if the response body contains the expected message
