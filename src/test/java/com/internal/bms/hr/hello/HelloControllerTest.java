@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class HelloControllerTest {
+class HelloControllerTest {
 
     @Test
-    public void testHelloGet() {
+    void testHelloGet() {
         HelloController helloController = new HelloController();
         ResponseEntity<String> response = helloController.helloGet();
         
