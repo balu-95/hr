@@ -2,7 +2,6 @@ package com.internal.bms.hr.hrportal.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +14,16 @@ import com.internal.bms.hr.hrportal.service.LocationService;
 @RestController
 @RequestMapping("/api/v1/locations")
 public class LocationController {
-    @Autowired
-    private LocationService locationService;
+	final private LocationService locationService;
 
-    @GetMapping
-    public ResponseEntity<List<Location>> getAllLocations() {
-        List<Location> locations = locationService.getAllLocations();
-        return new ResponseEntity<>(locations, HttpStatus.OK);
-    }
+	public LocationController(LocationService locationService) {
+		super();
+		this.locationService = locationService;
+	}
+
+	@GetMapping
+	public ResponseEntity<List<Location>> getAllLocations() {
+		List<Location> locations = locationService.getAllLocations();
+		return new ResponseEntity<>(locations, HttpStatus.OK);
+	}
 }

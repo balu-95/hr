@@ -1,6 +1,5 @@
 package com.internal.bms.hr.hrportal.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.internal.bms.hr.hrportal.entity.JobOpening;
@@ -11,10 +10,14 @@ import com.internal.bms.hr.hrportal.repository.JobPackageRepository;
 
 @Service
 public class JobOpeningService {
-    @Autowired
-    private JobOpeningRepository jobOpeningRepository;
-    @Autowired
-    private JobPackageRepository jobPackageRepository;
+    private final JobOpeningRepository jobOpeningRepository;
+    private final JobPackageRepository jobPackageRepository;
+
+    // Constructor with dependencies injected
+    public JobOpeningService(JobOpeningRepository jobOpeningRepository, JobPackageRepository jobPackageRepository) {
+        this.jobOpeningRepository = jobOpeningRepository;
+        this.jobPackageRepository = jobPackageRepository;
+    }
 
     public JobOpening createJobOpening(JobOpening jobOpening) {
         // Validate JobPackage existence

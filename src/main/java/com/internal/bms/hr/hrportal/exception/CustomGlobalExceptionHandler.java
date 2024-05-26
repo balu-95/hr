@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import jakarta.validation.ValidationException;
 
-//@ControllerAdvice
+@ControllerAdvice
 public class CustomGlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)

@@ -1,6 +1,5 @@
 package com.internal.bms.hr.hrportal.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.internal.bms.hr.hrportal.entity.Department;
@@ -16,39 +15,41 @@ import com.internal.bms.hr.hrportal.repository.LocationRepository;
 @Service
 public class JobPackageService {
 
-    @Autowired
-    private JobPackageRepository jobPackageRepository;
+	private final JobPackageRepository jobPackageRepository;
+	private final JobRoleRepository jobRoleRepository;
+	private final DepartmentRepository departmentRepository;
+	private final LocationRepository locationRepository;
 
-    @Autowired
-    private JobRoleRepository jobRoleRepository;
+	public JobPackageService(JobPackageRepository jobPackageRepository, JobRoleRepository jobRoleRepository,
+			DepartmentRepository departmentRepository, LocationRepository locationRepository) {
+		this.jobPackageRepository = jobPackageRepository;
+		this.jobRoleRepository = jobRoleRepository;
+		this.departmentRepository = departmentRepository;
+		this.locationRepository = locationRepository;
+	}
 
-    @Autowired
-    private DepartmentRepository departmentRepository;
+	public JobPackage createJobPackage(JobPackage jobPackage) {
+		validateJobPackageEntities(jobPackage);
 
-    @Autowired
-    private LocationRepository locationRepository;
+		// Save the job package after validation
+		return jobPackageRepository.save(jobPackage);
+	}
 
-    public JobPackage createJobPackage(JobPackage jobPackage) {
-        validateJobPackageEntities(jobPackage);
+	private void validateJobPackageEntities(JobPackage jobPackage) {
+		// Validate JobRole existence
+		JobRole jobRole = jobRoleRepository.findById(jobPackage.getRole().getId()).orElseThrow(
+				() -> new ResourceNotFoundException("JobRole not found with id: " + jobPackage.getRole().getId()));
+		jobPackage.setRole(jobRole);
 
-        // Save the job package after validation
-        return jobPackageRepository.save(jobPackage);
-    }
+		// Validate Department existence
+		Department department = departmentRepository.findById(jobPackage.getDepartment().getId())
+				.orElseThrow(() -> new ResourceNotFoundException(
+						"Department not found with id: " + jobPackage.getDepartment().getId()));
+		jobPackage.setDepartment(department);
 
-    private void validateJobPackageEntities(JobPackage jobPackage) {
-        // Validate JobRole existence
-        JobRole jobRole = jobRoleRepository.findById(jobPackage.getRole().getId())
-                .orElseThrow(() -> new ResourceNotFoundException("JobRole not found with id: " + jobPackage.getRole().getId()));
-        jobPackage.setRole(jobRole);
-
-        // Validate Department existence
-        Department department = departmentRepository.findById(jobPackage.getDepartment().getId())
-                .orElseThrow(() -> new ResourceNotFoundException("Department not found with id: " + jobPackage.getDepartment().getId()));
-        jobPackage.setDepartment(department);
-
-        // Validate Location existence
-        Location location = locationRepository.findById(jobPackage.getLocation().getId())
-                .orElseThrow(() -> new ResourceNotFoundException("Location not found with id: " + jobPackage.getLocation().getId()));
-        jobPackage.setLocation(location);
-    }
+		// Validate Location existence
+		Location location = locationRepository.findById(jobPackage.getLocation().getId()).orElseThrow(
+				() -> new ResourceNotFoundException("Location not found with id: " + jobPackage.getLocation().getId()));
+		jobPackage.setLocation(location);
+	}
 }

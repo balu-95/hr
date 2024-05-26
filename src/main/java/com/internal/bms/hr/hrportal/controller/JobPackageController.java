@@ -1,9 +1,11 @@
 package com.internal.bms.hr.hrportal.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.internal.bms.hr.hrportal.entity.JobPackage;
 import com.internal.bms.hr.hrportal.service.JobPackageService;
@@ -15,12 +17,16 @@ import jakarta.validation.Valid;
 @Validated
 public class JobPackageController {
 
-    @Autowired
-    private JobPackageService jobPackageService;
+	final private JobPackageService jobPackageService;
 
-    @PostMapping
-    public ResponseEntity<JobPackage> createJobPackage(@Valid @RequestBody JobPackage jobPackage) {
-        JobPackage createdJobPackage = jobPackageService.createJobPackage(jobPackage);
-        return ResponseEntity.ok(createdJobPackage);
-    }
+	public JobPackageController(JobPackageService jobPackageService) {
+		super();
+		this.jobPackageService = jobPackageService;
+	}
+
+	@PostMapping
+	public ResponseEntity<JobPackage> createJobPackage(@Valid @RequestBody JobPackage jobPackage) {
+		JobPackage createdJobPackage = jobPackageService.createJobPackage(jobPackage);
+		return ResponseEntity.ok(createdJobPackage);
+	}
 }

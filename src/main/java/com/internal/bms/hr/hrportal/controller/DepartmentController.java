@@ -2,7 +2,6 @@ package com.internal.bms.hr.hrportal.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +14,12 @@ import com.internal.bms.hr.hrportal.service.DepartmentService;
 @RestController
 @RequestMapping("/api/v1/departments")
 public class DepartmentController {
-    @Autowired
-    private DepartmentService departmentService;
+
+    private final DepartmentService departmentService;
+
+    public DepartmentController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Department>> getAllDepartments() {

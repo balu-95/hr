@@ -1,6 +1,5 @@
 package com.internal.bms.hr.hrportal.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -18,13 +17,17 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/v1/job-openings")
 @Validated
 public class JobOpeningController {
-    @Autowired
-    private JobOpeningService jobOpeningService;
 
-    @PostMapping
-    public ResponseEntity<JobOpening> createJobOpening(@Valid @RequestBody JobOpening jobOpening) {
-    	System.out.println("job opening test........");
-        JobOpening createdJobOpening = jobOpeningService.createJobOpening(jobOpening);
-        return new ResponseEntity<>(createdJobOpening, HttpStatus.CREATED);
-    }
+	final private JobOpeningService jobOpeningService;
+
+	public JobOpeningController(JobOpeningService jobOpeningService) {
+		super();
+		this.jobOpeningService = jobOpeningService;
+	}
+
+	@PostMapping
+	public ResponseEntity<JobOpening> createJobOpening(@Valid @RequestBody JobOpening jobOpening) {
+		JobOpening createdJobOpening = jobOpeningService.createJobOpening(jobOpening);
+		return new ResponseEntity<>(createdJobOpening, HttpStatus.CREATED);
+	}
 }

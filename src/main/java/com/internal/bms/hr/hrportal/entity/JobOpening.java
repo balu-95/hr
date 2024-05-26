@@ -64,9 +64,7 @@ public class JobOpening {
     }
 
     public void setJobPackage(JobPackage jobPackage) {
-    	System.out.println("package set..............");
         this.jobPackage = jobPackage;
-    	System.out.println("package set done..............");
 
     }
 
@@ -91,9 +89,7 @@ public class JobOpening {
     }
 
     public void setCustomTitle(String customTitle) {
-System.out.println("title set..............");
         this.customTitle = customTitle;
-        System.out.println("title set..done............");
 
     }
 
