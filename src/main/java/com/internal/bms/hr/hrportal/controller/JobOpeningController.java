@@ -18,7 +18,7 @@ import jakarta.validation.Valid;
 @Validated
 public class JobOpeningController {
 
-	final private JobOpeningService jobOpeningService;
+	private final JobOpeningService jobOpeningService;
 
 	public JobOpeningController(JobOpeningService jobOpeningService) {
 		super();

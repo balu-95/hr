@@ -14,7 +14,7 @@ import com.internal.bms.hr.hrportal.service.LocationService;
 @RestController
 @RequestMapping("/api/v1/locations")
 public class LocationController {
-	final private LocationService locationService;
+	private final LocationService locationService;
 
 	public LocationController(LocationService locationService) {
 		super();

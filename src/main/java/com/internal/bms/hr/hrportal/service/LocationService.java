@@ -10,7 +10,7 @@ import com.internal.bms.hr.hrportal.repository.LocationRepository;
 @Service
 public class LocationService {
 
-	final private LocationRepository locationRepository;
+	private final LocationRepository locationRepository;
 
 	public LocationService(LocationRepository locationRepository) {
 		super();

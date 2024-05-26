@@ -10,7 +10,7 @@ import com.internal.bms.hr.hrportal.repository.JobRoleRepository;
 @Service
 public class JobRoleService {
 
-	final private JobRoleRepository jobRoleRepository;
+	private final JobRoleRepository jobRoleRepository;
 
 	public JobRoleService(JobRoleRepository jobRoleRepository) {
 		super();

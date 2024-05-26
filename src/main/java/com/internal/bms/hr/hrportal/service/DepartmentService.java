@@ -9,7 +9,7 @@ import com.internal.bms.hr.hrportal.repository.DepartmentRepository;
 
 @Service
 public class DepartmentService {
-	final private DepartmentRepository departmentRepository;
+	private final DepartmentRepository departmentRepository;
 
 	public DepartmentService(DepartmentRepository departmentRepository) {
 		super();

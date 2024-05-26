@@ -15,7 +15,7 @@ import com.internal.bms.hr.hrportal.service.JobRoleService;
 @RequestMapping("/api/v1/job-roles")
 public class JobRoleController {
 
-	final private JobRoleService jobRoleService;
+	private final JobRoleService jobRoleService;
 
 	public JobRoleController(JobRoleService jobRoleService) {
 		super();
