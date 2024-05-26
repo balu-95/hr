@@ -14,14 +14,13 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="departmentid")
-	private Long Id;
+	private Long id;
 	
 	@Column(name="departmentname", nullable = false)
 	private String name;
 
 	public Department() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -33,11 +32,11 @@ public class Department {
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 	
 	
