@@ -3,7 +3,6 @@ package com.internal.bms.hr.hrportal.controller;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +17,7 @@ import com.internal.bms.hr.hrportal.entity.JobPackage;
 import com.internal.bms.hr.hrportal.service.JobPackageService;
 
 @WebMvcTest(JobPackageController.class)
-public class JobPackageControllerTest {
+class JobPackageControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

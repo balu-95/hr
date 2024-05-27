@@ -15,7 +15,7 @@ import org.mockito.MockitoAnnotations;
 import com.internal.bms.hr.hrportal.entity.Department;
 import com.internal.bms.hr.hrportal.repository.DepartmentRepository;
 
-public class DepartmentServiceTest {
+class DepartmentServiceTest {
 
     @Mock
     private DepartmentRepository departmentRepository;

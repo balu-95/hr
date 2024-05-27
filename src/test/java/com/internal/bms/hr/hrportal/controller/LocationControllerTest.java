@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @WebMvcTest(LocationController.class)
-public class LocationControllerTest {
+class LocationControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

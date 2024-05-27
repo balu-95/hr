@@ -17,7 +17,7 @@ import com.internal.bms.hr.hrportal.entity.Department;
 import com.internal.bms.hr.hrportal.service.DepartmentService;
 
 @WebMvcTest(DepartmentController.class)
-public class DepartmentControllerTest {
+class DepartmentControllerTest {
 
     @Autowired
     private MockMvc mockMvc; // Step 2: Use MockMvc for HTTP actions

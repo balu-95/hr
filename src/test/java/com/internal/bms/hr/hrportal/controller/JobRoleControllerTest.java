@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @WebMvcTest(JobRoleController.class)
-public class JobRoleControllerTest {
+class JobRoleControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

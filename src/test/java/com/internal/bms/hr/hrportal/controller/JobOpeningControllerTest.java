@@ -19,7 +19,7 @@ import com.internal.bms.hr.hrportal.entity.JobPackage;
 import com.internal.bms.hr.hrportal.service.JobOpeningService;
 
 @WebMvcTest(JobOpeningController.class)
-public class JobOpeningControllerTest {
+class JobOpeningControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
