@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Candidate")
+@Table(name = "candidate")
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,10 @@ public class Candidate {
     @Column(name = "mobilenumber")
     private String mobileNumber;
 
+//    @Lob not needed if we using hibernate 6+
+//    @Type(type="org.hibernate.type.BinaryType") 
     @Column(name = "resume")
-    private String resume;
-
+    private byte[] resume;
     // Getters and Setters
     public Long getId() {
         return id;
@@ -60,11 +61,11 @@ public class Candidate {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getResume() {
+    public byte[] getResume() {
         return resume;
     }
 
-    public void setResume(String resume) {
+    public void setResume(byte[] resume) {
         this.resume = resume;
     }
 }

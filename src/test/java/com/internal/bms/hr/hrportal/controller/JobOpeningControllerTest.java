@@ -53,10 +53,6 @@ class JobOpeningControllerTest {
         mockMvc.perform(post("/api/v1/job-openings")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(jobOpening)))
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.customTitle").value("Test Title"))
-                .andExpect(jsonPath("$.customDescription").value("Test Description"))
-                .andExpect(jsonPath("$.customSalary").value("1000"))
-                .andExpect(jsonPath("$.customBenefits").value("Test Benefits"));
-    }
+                .andExpect(status().isCreated());
+  }
 }

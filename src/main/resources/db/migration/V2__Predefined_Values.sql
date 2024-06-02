@@ -1,5 +1,5 @@
 --Insert predefined values into Department table
-Insert into Department (DepartmentName) values
+INSERT INTO Department (DepartmentName) VALUES
 ('Engineering'),
 ('Human Resources'),
 ('Sales'),
@@ -8,16 +8,16 @@ Insert into Department (DepartmentName) values
 
 
 --Insert predefined values into Location table
-Insert into Location (LocationName) values
-('New york'),
-('San Fransico'),
+INSERT INTO Location (LocationName) VALUES
+('New York'),
+('San Francisco'),
 ('Austin'),
 ('Chicago'),
-('Los Angels');
+('Los Angeles');
 
 
---Insert Predefined values into JobRole table
-Insert into JobRole (RoleName, RoleDescription, SalaryRange, Responsibilities, Requirements, Benefits) values
+--Insert predefined values into JobRole table
+INSERT INTO JobRole (RoleName, RoleDescription, SalaryRange, Responsibilities, Requirements, Benefits) VALUES
 ('Software Engineer', 'Develop and maintain software applications.', '80k-120k', 'Coding, Testing, Reviewing', 'Bachelor''s degree in CS or related field', 'Health insurance, 401k'),
 ('HR Manager', 'Manage HR activities and personnel.', '60k-90k', 'Recruiting, Employee Relations', 'Bachelor''s degree in HR or related field', 'Health insurance, 401k'),
 ('Sales Representative', 'Drive sales and manage client relationships.', '50k-70k', 'Selling, Client Management', 'Bachelor''s degree in Business or related field', 'Health insurance, 401k'),
@@ -25,8 +25,8 @@ Insert into JobRole (RoleName, RoleDescription, SalaryRange, Responsibilities, R
 ('Financial Analyst', 'Analyze financial data and create reports.', '60k-80k', 'Financial modeling, Forecasting', 'Bachelor''s degree in Finance or related field', 'Health insurance, 401k');
 
 
--- Insert predefined values into ApplicationStatus table
-Insert into ApplicationStatus (StatusName) values 
+--Insert predefined values into ApplicationStatus table
+INSERT INTO ApplicationStatus (StatusName) VALUES 
 ('Applied'), 
 ('In Review'), 
 ('Interview Scheduled'), 

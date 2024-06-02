@@ -43,6 +43,6 @@ class JobPackageControllerTest {
         mockMvc.perform(post("/api/v1/jobpackages")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(jobPackage)))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
 }

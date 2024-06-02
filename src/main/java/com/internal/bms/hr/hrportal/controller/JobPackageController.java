@@ -1,5 +1,6 @@
 package com.internal.bms.hr.hrportal.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,5 @@ public class JobPackageController {
 	@PostMapping
 	public ResponseEntity<JobPackage> createJobPackage(@Valid @RequestBody JobPackage jobPackage) {
 		JobPackage createdJobPackage = jobPackageService.createJobPackage(jobPackage);
-		return ResponseEntity.ok(createdJobPackage);
-	}
+		return new ResponseEntity<>(createdJobPackage, HttpStatus.CREATED);	}
 }

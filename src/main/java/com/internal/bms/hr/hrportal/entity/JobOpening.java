@@ -3,7 +3,7 @@ package com.internal.bms.hr.hrportal.entity;
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
-import javax.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,6 +14,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "jobopening")
@@ -37,16 +38,20 @@ public class JobOpening {
     @Column(name = "closingdate")
     private LocalDateTime closingDate;
 
+    @JsonIgnore
     @Column(name = "customtitle")
     @Size(max = 255, message = "CustomTitle cannot exceed 255 characters")
     private String customTitle;
 
+    @JsonIgnore
     @Column(name = "customdescription")
     private String customDescription;
 
+    @JsonIgnore
     @Column(name = "customsalary")
     private String customSalary;
 
+    @JsonIgnore
     @Column(name = "custombenefits")
     private String customBenefits;
 
