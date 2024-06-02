@@ -54,7 +54,7 @@ public class CandidateService {
         List<Application> applications = applicationRepository.findByCandidateId(candidateId);
         return applications.stream()
                 .map(Application::getStatus)
-                .collect(Collectors.toUnmodifiableList()));
+                .collect(Collectors.toUnmodifiableList());
     }
 
     private ApplicationStatus fetchApplicationStatusByName(String statusName) {

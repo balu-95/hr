@@ -3,6 +3,8 @@ package com.internal.bms.hr.hrportal.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.internal.bms.hr.hrportal.entity.JobOpening;
@@ -66,4 +68,10 @@ public class JobOpeningService {
 
         return jobOpening;
     }
+    
+    public Page<JobOpening> getAllJobOpenings(Pageable pageable) {
+        return jobOpeningRepository.findAll(pageable);
+    }
+    
+
 }

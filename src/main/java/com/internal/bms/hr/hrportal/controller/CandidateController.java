@@ -72,10 +72,8 @@ public class CandidateController {
     @GetMapping("/{candidateId}/applications")
     public ResponseEntity<List<ApplicationStatus>> getApplicationsByCandidate(
             @PathVariable Long candidateId) {
-        List<ApplicationStatus> applicationStatusList = candidateService.getApplicationStatusByCandidateId(candidateId)
-                .stream()
-                .map(application -> new ApplicationStatus(application.getStatus()))
-                .collect(Collectors.toList());
+        List<ApplicationStatus> applicationStatusList = candidateService.getApplicationStatusByCandidateId(candidateId);
+               
         return ResponseEntity.ok(applicationStatusList);
     }
 
