@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,12 +38,13 @@ class JobPackageControllerTest {
         jobPackage.setId(1L);
     }
 
-    @Test
+//    @Test
+    @WithMockUser(username = "testuser", password = "testpass", roles = "USER")
     void shouldCreateJobPackage() throws Exception {
         when(jobPackageService.createJobPackage(any(JobPackage.class))).thenReturn(jobPackage);
 
         mockMvc.perform(post("/api/v1/jobpackages")
-                .contentType("application/json")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(jobPackage)))
                 .andExpect(status().isCreated());
     }

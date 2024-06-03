@@ -2,8 +2,8 @@ package com.internal.bms.hr.hrportal.controller;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
 
@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.internal.bms.hr.hrportal.entity.Department;
@@ -26,7 +27,8 @@ class DepartmentControllerTest {
     private DepartmentService departmentService; // Step 3: Mock the DepartmentService
 
     @Test
-    public void testGetAllDepartments() throws Exception {
+    @WithMockUser(username = "testuser", password = "testpass", roles = "USER")
+    void testGetAllDepartments() throws Exception {
         // Creating mock data
         Department department1 = new Department();
         department1.setId(1L);
